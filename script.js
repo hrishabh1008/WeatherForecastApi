@@ -1,5 +1,5 @@
 const apiKey = "98cddcc8f3f3d1a4403704658bf2ec11"; // Replace with your OpenWeatherMap API key
-const iconBaseUrl = "http://openweathermap.org/img/wn/"; // Icon base URL
+const iconBaseUrl = "https://openweathermap.org/img/wn/"; // Icon base URL
 
 const cityInput = document.getElementById("cityInput");
 const searchBtn = document.getElementById("searchBtn");
@@ -76,7 +76,7 @@ currentLocationBtn.onclick = () => {
 async function geoCoding(cityName) {
 
    try {
-      const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${apiKey}`);
+      const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${apiKey}`);
 
       const data = await response.json();
       console.log("COORDINATES DATA", data);                 //CONSOLE LOGGING THE DATA
