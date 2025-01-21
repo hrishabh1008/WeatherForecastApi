@@ -2,12 +2,13 @@
 
 .text-divider {
     display: flex;
-    align-items: center; /* align text and lines vertically */  }
+    align-items: center; 
+  }
   
   .text-divider::before,
   .text-divider::after {
     content: '';
     height: 1px;
     background-color: silver;
-    flex-grow: 1; /* both lines will expand to occupy the available space*/
+    flex-grow: 1; 
   }
