@@ -8,6 +8,8 @@ This repository contains a Weather API project that provides weather information
 - Retrieve weather forecasts for the next few days
 - Support for multiple locations
 - Easy-to-use API endpoints
+- Display Air Quality Index (AQI) data
+- Save and load recent cities from local storage
 
 ## Installation
 
@@ -40,6 +42,25 @@ This repository contains a Weather API project that provides weather information
 ## Configuration
 
 - Update the `config.js` file with your API key from the third-party weather service.
+
+## Untracking and Removing a Folder
+
+To untrack a folder from Git and remove it from the remote repository, follow these steps:
+
+1. Untrack the folder:
+    ```sh
+    git rm -r --cached path/to/folder
+    ```
+2. Commit the changes:
+    ```sh
+    git commit -m "Untrack and remove folder from repository"
+    ```
+3. Push the changes to the remote repository:
+    ```sh
+    git push origin main
+    ```
+
+Replace `path/to/folder` with the actual path to the folder you want to untrack and remove.
 
 ## Contributing
 
