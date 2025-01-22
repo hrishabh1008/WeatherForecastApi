@@ -2,6 +2,7 @@
 
 This repository contains a Weather API project that provides weather information for different locations. The API fetches data from a third-party weather service and presents it in a user-friendly format.
 
+NOTE: Please disable system's firewall.
 ## Features
 
 - Fetch current weather data for a specific location
