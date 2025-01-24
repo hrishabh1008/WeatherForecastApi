@@ -47,13 +47,19 @@ cityInput.addEventListener("keydown", function (event) {
 // Load weather data when selecting any recent city
 recentCities.addEventListener("change", function () {
    const selectedCity = recentCities.value;
-   if (selectedCity) {
-      const recentCitiesDetails = JSON.parse(localStorage.getItem("recentCities")) || [];
-      const cityDetails = recentCitiesDetails.find(city => city.city.name === selectedCity);
-      if (cityDetails) {
-         updateWeatherData(cityDetails);
-         forecastData(cityDetails.city.coord.lat, cityDetails.city.coord.lon);
-      }
+   const recentCitiesDetails = JSON.parse(localStorage.getItem("recentCities")) || [];
+   const cityDetails = recentCitiesDetails.find(city => city.city.name === selectedCity);
+
+   if (cityDetails.city.name === selectedCity) {
+      console.log("if",cityDetails);
+      
+      updateWeatherData(cityDetails);
+      forecastData(cityDetails.city.coord.lat, cityDetails.city.coord.lon);
+   } else {
+      console.error("City details not found for selected city:", selectedCity);
+      console.log(cityDetails);
+      
+      // alert("City details not found. Please try again.");
    }
 });
 
@@ -130,6 +136,8 @@ async function fetchWeatherData(lat, lon) {
       forecastData(lat, lon);
       saveRecentCities(data);
       updateWeatherData(data);
+     
+      
 
       return data;
    } catch (error) {
@@ -149,6 +157,7 @@ async function forecastData(lat, lon) {
       // console.log("FORECAST DATA", data);                             //CONSOLE LOGGING THE DATA
 
       forecastCards(data);
+      
 
       return data;
    } catch (error) {
@@ -264,6 +273,7 @@ function forecastCards(forecastDetails) {
                ${forecastHTML}
             </div>
          </div>`;
+         dropDownRecentCities();
    } catch (error) {
       console.error("Error updating forecast cards:", error);
       alert("Error updating forecast cards. Please try again later.");
